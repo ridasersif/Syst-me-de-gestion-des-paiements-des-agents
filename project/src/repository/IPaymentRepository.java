@@ -1,4 +1,4 @@
 package repository;
 
-public interface PaymentRepository {
+public interface IPaymentRepository {
 }
