@@ -1,4 +1,4 @@
 package controller;
 
-public class ManagerController {
+public class DepartmentController {
 }
