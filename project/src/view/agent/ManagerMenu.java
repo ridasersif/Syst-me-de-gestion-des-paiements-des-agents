@@ -2,7 +2,7 @@ package view.agent;
 
 import util.InputUtil;
 
-public class ResponsableMenu {
+public class ManagerMenu {
 
     public void show() {
         while (true) {
