@@ -14,6 +14,7 @@ public class DepartmentRepositoryImpl implements IDepartmentRepository {
     public DepartmentRepositoryImpl() throws SQLException{
         this.conn = DatabaseConnection.getConnection();
     }
+
     @Override
     public void addDepartment(Department department) {
         String sql = "INSERT INTO Department (name) VALUES (?)";
@@ -82,5 +83,4 @@ public class DepartmentRepositoryImpl implements IDepartmentRepository {
         }
         return departments;
     }
-
 }
