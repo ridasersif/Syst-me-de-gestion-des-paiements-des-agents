@@ -27,6 +27,7 @@ public class Agent {
     }
 
     // --- Getters & Setters ---
+
     public int getIdAgent() { return idAgent; }
     public void setIdAgent(int idAgent) { this.idAgent = idAgent; }
 
@@ -60,11 +61,28 @@ public class Agent {
 
     // --- Display info ---
     public void displayInfo() {
-        System.out.println("Agent: " + firstName + " " + lastName);
-        System.out.println("Email: " + email);
-        System.out.println("Type: " + agentType);
-        if(department != null) {
-            System.out.println("Department: " + department.getName());
+        System.out.println("\n╔════════════════════════════════════════════╗");
+        System.out.println("║              👤 MON PROFIL                 ║");
+        System.out.println("╠════════════════════════════════════════════╣");
+
+        System.out.printf("║ %-15s │ %-24s ║%n", "Nom complet", this.firstName + " " + this.lastName);
+        System.out.println("╠────────────────────────────────────────────╣");
+
+        System.out.printf("║ %-15s │ %-24s ║%n", "Email", this.email);
+        System.out.println("╠────────────────────────────────────────────╣");
+
+        System.out.printf("║ %-15s │ %-24s ║%n", "Type Agent", this.agentType);
+        System.out.println("╠────────────────────────────────────────────╣");
+
+        if (this.department != null) {
+            System.out.printf("║ %-15s │ %-24s ║%n", "Département", this.department.getName());
+        } else {
+            System.out.printf("║ %-15s │ %-24s ║%n", "Département", "Non affecté");
         }
+
+        System.out.println("╚════════════════════════════════════════════╝\n");
     }
+
+
+
 }
