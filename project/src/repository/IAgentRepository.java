@@ -12,4 +12,5 @@ public interface IAgentRepository {
     Optional<Agent> getAgentById(int agentId);
     List<Agent> getAllAgents();
     List<Agent> getAgentsByDepartment(int departmentId);
+    Optional<Agent> findByEmail(String email);
 }
