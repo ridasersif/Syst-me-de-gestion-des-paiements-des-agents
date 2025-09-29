@@ -1,54 +1,62 @@
 gestion-payments/
 │
-├── config/                     # Database configuration
-│   └── DatabaseConnection.java     # Singleton class: opens/closes JDBC connection
+├── config/
+│   └── DatabaseConnection.java
 │
-├── model/                      # Domain entities (POJOs)
-│   ├── User.java                   # Abstract class: firstName, lastName, email, password
-│   ├── Agent.java                  # Inherits from User: includes agentType, department, payments (List<Payment>)
-│   ├── Department.java             # id, name, manager (Agent), list of agents
-│   ├── Payment.java                # Abstract class: id, amount, date, reason, linked agent
-│   ├── Bonus.java                  # Extends Payment, includes conditionValidated
-│   ├── Allowance.java              # Extends Payment, includes conditionValidated
+├── model/
+│   ├── Agent.java
+│   ├── Department.java
+│   ├── Payment.java
+│   ├── Bonus.java
+│   ├── Allowance.java
 │   └── enums/
-│       ├── AgentType.java          # Enum: WORKER, MANAGER, DIRECTOR, INTERN
-│       └── PaymentType.java        # Enum: SALARY, BONUS, PREMIUM, ALLOWANCE
+│       ├── AgentType.java
+│       └── PaymentType.java
 │
-├── repository/                 # Data Access Layer (DAO with JDBC)
-│   ├── AgentRepository.java         # CRUD interface for Agent
-│   ├── AgentRepositoryImpl.java     # JDBC implementation of AgentRepository
-│   ├── DepartmentRepository.java    # CRUD interface for Department
-│   ├── DepartmentRepositoryImpl.java# JDBC implementation of DepartmentRepository
-│   ├── PaymentRepository.java       # CRUD interface for Payment
-│   └── PaymentRepositoryImpl.java   # JDBC implementation of PaymentRepository
+├── repository/
+│   ├── AgentRepository.java
+│   ├── AgentRepositoryImpl.java
+│   ├── DepartmentRepository.java
+│   ├── DepartmentRepositoryImpl.java
+│   ├── PaymentRepository.java
+│   └── PaymentRepositoryImpl.java
 │
-├── service/                    # Business logic layer
-│   ├── AgentService.java           # Manages agent operations, validation, and rules
-│   ├── DepartmentService.java      # Handles department creation, updates, manager assignment
-│   ├── PaymentService.java         # Manages payment creation and eligibility checks
-│   └── StatisticsService.java      # Computes totals, averages, rankings, and reports
+├── service/
+│   ├── AgentService.java
+│   ├── DepartmentService.java
+│   ├── PaymentService.java
+│   └── StatisticsService.java
 │
-├── controller/                 # Application flow control (connects View and Services)
-│   ├── AgentController.java        # Handles agent-related commands (view info, history, totals)
-│   ├── DepartmentController.java   # Handles department-related actions (CRUD, assign manager)
-│   └── PaymentController.java      # Handles payment-related actions (add, filter, validate)
+├── controller/
+│   ├── AgentController.java
+│   ├── DepartmentController.java
+│   └── PaymentController.java
 │
-├── view/                       # Console UI layer (Menus and user interactions)
-│   ├── MainMenu.java               # Main menu (access Agent, Department, Payment)
-│   ├── AgentMenu.java              # Agent menu: view profile, payment history, filter payments
-│   ├── DepartmentMenu.java         # Department menu: create, modify, assign agents/managers
-│   └── PaymentMenu.java            # Payment menu: create, view, filter payments
+├── view/
+│   ├── auth/
+│   │   ├── LoginMenu.java
+│   │   └── RegisterMenu.java
+│   │
+│   ├── agent/
+│   │   └── AgentMenu.java
+│   │
+│   ├── director/
+│   │   ├── DirectorMenu.java
+│   │   ├── DepartmentMenu.java
+│   │   └── PaymentMenu.java
+│   │
+│   └── MainMenu.java
 │
-├── util/                       # Utility classes and helper methods
-│   └── InputUtil.java              # Input validation, scanner utility, date parsing
+├── util/
+│   └── InputUtil.java
 │
-├── exception/                  # Custom exception classes
+├── exception/
 │   ├── AgentNotFoundException.java
 │   ├── DepartmentNotFoundException.java
 │   ├── PaymentNotFoundException.java
 │   └── InvalidPaymentException.java
 │
-├── Main.java                   # Entry point of the application (initializes MainMenu)
+├── Main.java
 │
-└── resources/                  # SQL scripts, sample data, and configuration files
-    └── schema.sql                 # SQL schema to create tables: agents, departments, payments
+└── resources/
+    └── schema.sql
