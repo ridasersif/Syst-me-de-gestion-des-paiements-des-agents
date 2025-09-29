@@ -32,13 +32,11 @@ public class Department {
     public void setManager(Agent manager) { this.manager = manager; }
 
     public List<Agent> getAgents() { return agents; }
-
     // Methods to manage agents
     public void addAgent(Agent agent) {
         agent.setDepartment(this);
         agents.add(agent);
     }
-
     public void removeAgent(Agent agent) {
         agent.setDepartment(null);
         agents.remove(agent);
