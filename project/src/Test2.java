@@ -21,7 +21,7 @@ public class Test2 {
         List<Car> sedanCars = cars.stream().filter(car -> car.type.equals("Sedan")).toList();
         List<String> carMakeList = cars.stream().map(car -> car.make).toList();
         List<String> carMakeModelList = cars.stream().flatMap(car ->Stream.of(car.make,car.model)).toList();
-        // Example: print all cars
+
         carMakeModelList.forEach(System.out::println);
     }
 }
