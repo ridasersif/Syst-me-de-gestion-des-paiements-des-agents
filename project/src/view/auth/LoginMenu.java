@@ -7,8 +7,6 @@ import java.util.Scanner;
 import util.InputUtil;
 import view.agent.AgentMenu;
 import view.agent.DirecteurMenu;
-import view.agent.ManagerMenu;
-
 public class LoginMenu {
     private AuthController authController = new AuthController();
 
@@ -16,7 +14,6 @@ public class LoginMenu {
     }
 
     public void show() {
-
         while (true) {
             if (handleLogin()) {
                 break;
@@ -73,11 +70,8 @@ public class LoginMenu {
 
         switch (agent.getAgentType()) {
             case DIRECTOR:
-                new DirecteurMenu(agent).show();
-                break;
-
             case MANAGER:
-                new ManagerMenu().show();
+                new DirecteurMenu(agent).show();
                 break;
             case WORKER:
             case INTERN:

@@ -3,16 +3,22 @@ package view.agent;
 import model.Agent;
 import util.InputUtil;
 import view.DepartmentMenu;
+import view.PaymentMenu;
 
+import static model.enums.AgentType.DIRECTOR;
 public class DirecteurMenu {
-    private Agent agent; // agent connecté
+    private Agent agent; // agent connecte
     private AgentMenu agentMenu;
     private AgentManagementMenu agentManagementMenu;
+    private PaymentMenu paymentMenu;
+    private DepartmentMenu departmentMenu;
 
     public DirecteurMenu(Agent agent) {
         this.agent = agent;
         this.agentMenu = new AgentMenu(agent);
         this.agentManagementMenu = new AgentManagementMenu(agent);
+        this.departmentMenu = new DepartmentMenu(agent);
+        this.paymentMenu = new PaymentMenu(agent);
     }
 
     public void show() {
@@ -30,13 +36,18 @@ public class DirecteurMenu {
     }
 
     private void displayMenu() {
-        System.out.println("╔════════════════════════════════════════════╗");
-        System.out.println("║               ESPACE DIRECTEUR             ║");
+        String title = (agent.getAgentType() == DIRECTOR)
+                         ? "╔═════════════ ESPACE DIRECTEUR ═════════════╗"
+                         : "╔══════════════ ESPACE MANAGER ══════════════╗";
+
+        System.out.println(title);
         System.out.println("║              Panneau de Contrôle           ║");
         System.out.println("╠════════════════════════════════════════════╣");
         System.out.println("║                                            ║");
         System.out.println("║  1️⃣ Mon Profil                             ║");
-        System.out.println("║  2️⃣ Gestion Départements                   ║");
+        if (agent.getAgentType() == DIRECTOR) {
+            System.out.println("║  2️⃣ Gestion Départements                   ║");
+        }
         System.out.println("║  3️⃣ Gestion des Agents                     ║");
         System.out.println("║  4️⃣ Gestion Paiements                      ║");
         System.out.println("║  5️⃣ Statistiques & Rapports                ║");
@@ -48,19 +59,19 @@ public class DirecteurMenu {
     private boolean handleChoice(int choice) {
         switch (choice) {
             case 1:
-                showProfile();
+                agentMenu.show();
                 return false;
 
             case 2:
-                showDepartmentManagement();
+                departmentMenu.show();
                 return false;
 
             case 3:
-                showAgentManagement();
+                agentManagementMenu.show();
                 return false;
 
             case 4:
-
+                paymentMenu.show();
                 return false;
 
             case 5:
@@ -81,25 +92,7 @@ public class DirecteurMenu {
         }
     }
 
-    private void showProfile() {
-        agentMenu.show();
-    }
-    private void showAgentManagement() {
-        System.out.println("═══════════════════════════════════════════════");
-        System.out.println("     GESTION DES AGENTS");
-        System.out.println("   Accès au module agents...");
-        System.out.println("═══════════════════════════════════════════════");
 
-        agentManagementMenu.show();
-    }
-    private void showDepartmentManagement() {
-        System.out.println("═══════════════════════════════════════════════");
-        System.out.println("     GESTION DES DÉPARTEMENTS");
-        System.out.println("   Accès au module départements...");
-        System.out.println("═══════════════════════════════════════════════");
-
-        new DepartmentMenu(agent).show();
-    }
 
     private void showLogout() {
 

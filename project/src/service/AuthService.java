@@ -1,9 +1,7 @@
 package service;
 
 import model.Agent;
-import model.enums.AgentType;
 import repository.IAgentRepository;
-
 import java.util.Optional;
 
 public class AuthService {

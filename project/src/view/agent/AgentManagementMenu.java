@@ -111,7 +111,7 @@ public class AgentManagementMenu {
 
                 System.out.println("Liste des départements disponibles : ");
                 for (Department dept : allDepartments) {
-                    System.out.println(dept.getId() + "️⃣ " + dept.getName());
+                    System.out.println(dept.getId() + dept.getName());
                 }
                 int deptId = InputUtil.readInt("Choisissez l'ID du département ");
 
@@ -206,7 +206,7 @@ public class AgentManagementMenu {
         }
 
         Agent a = agentOpt.get();
-     System.out.println("\n╔═════════════════════════════════════════════════════════╗");
+     System.out.println("\n╔═══════════════════════════════════════════════════════╗");
         System.out.printf("║ %-15s : %-35d ║%n", "ID", a.getIdAgent());
         System.out.printf("║ %-15s : %-35s ║%n", "Nom", a.getLastName());
         System.out.printf("║ %-15s : %-35s ║%n", "Prénom", a.getFirstName());
@@ -215,7 +215,7 @@ public class AgentManagementMenu {
         if (a.getDepartment() != null) {
             System.out.printf("║ %-15s : %-35s ║%n", "Département", a.getDepartment().getName());
         }
-        System.out.println("╚═════════════════════════════════════════════════════════╝");
+        System.out.println("╚═══════════════════════════════════════════════════════╝");
     }
 
     private void listAgents() {
