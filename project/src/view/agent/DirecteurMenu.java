@@ -4,6 +4,7 @@ import model.Agent;
 import util.InputUtil;
 import view.DepartmentMenu;
 import view.PaymentMenu;
+import view.StatisticsMenu;
 
 import static model.enums.AgentType.DIRECTOR;
 public class DirecteurMenu {
@@ -12,6 +13,7 @@ public class DirecteurMenu {
     private AgentManagementMenu agentManagementMenu;
     private PaymentMenu paymentMenu;
     private DepartmentMenu departmentMenu;
+    private StatisticsMenu statisticsMenu;
 
     public DirecteurMenu(Agent agent) {
         this.agent = agent;
@@ -19,6 +21,7 @@ public class DirecteurMenu {
         this.agentManagementMenu = new AgentManagementMenu(agent);
         this.departmentMenu = new DepartmentMenu(agent);
         this.paymentMenu = new PaymentMenu(agent);
+        this.statisticsMenu  = new StatisticsMenu(agent);
     }
 
     public void show() {
@@ -76,6 +79,7 @@ public class DirecteurMenu {
 
             case 5:
 
+                statisticsMenu.show();
                 return false;
 
             case 6:

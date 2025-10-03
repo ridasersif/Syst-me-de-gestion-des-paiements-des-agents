@@ -3,8 +3,10 @@ package repository;
 
 import model.Agent;
 import model.Payment;
+
 import model.enums.PaymentType;
 import java.time.LocalDate;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -20,10 +22,10 @@ public interface IPaymentRepository {
     boolean deletePayment(int idPaiement);
 
     List<Payment>getAllPaiement();
-    /*
-    List<Payment> getPaymentsByAgent(int agentId);
 
+    List<Payment> findByAgentId(int agentId);
 
+  /*
 
     List<Payment> filterPaymentsByType(int agentId, PaymentType type);
 
